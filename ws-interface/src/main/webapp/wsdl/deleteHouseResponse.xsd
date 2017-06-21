@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://iac.nl.schemas/deleteHouseResponse"
+	targetNamespace="http://iac.nl.schemas/deleteHouseResponse"
+	elementFormDefault="qualified">
+
+	<element name="deleteHouseResponse">
+	<!-- Success of removal message back -->
+	<complexType>
+		<sequence>
+			<element name="response">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	</element>
+</schema>

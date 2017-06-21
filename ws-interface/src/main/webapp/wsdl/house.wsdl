@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:csq="http://iac.nl.schemas/createHouseRequest"
+	xmlns:css="http://iac.nl.schemas/createHouseResponse" xmlns:usq="http://iac.nl.schemas/updateHouseRequest"
+	xmlns:uss="http://iac.nl.schemas/updateHouseResponse" xmlns:dsq="http://iac.nl.schemas/deleteHouseRequest"
+	xmlns:dss="http://iac.nl.schemas/deleteHouseResponse" xmlns:rsq="http://iac.nl.schemas/readHouseRequest"
+	xmlns:rss="http://iac.nl.schemas/readHouseResponse" xmlns:srv="http://iac.nl/schemas/message"
+	targetNamespace="http://iac.nl/schemas/message">
+	<wsdl:types>
+		<xsd:schema>
+
+			<xsd:import namespace="http://iac.nl.schemas/createHouseRequest"
+				schemaLocation="createHouseRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/createHouseResponse"
+				schemaLocation="createHouseResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/updateHouseRequest"
+				schemaLocation="updateHouseRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/updateHouseResponse"
+				schemaLocation="updateHouseResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/readHouseResponse"
+				schemaLocation="readHouseResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/deleteHouseResponse"
+				schemaLocation="deleteHouseResponse.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/deleteHouseRequest"
+				schemaLocation="deleteHouseRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+			<xsd:schema>
+			<xsd:import namespace="http://iac.nl.schemas/readHouseRequest"
+				schemaLocation="readHouseRequest.xsd">
+			</xsd:import>
+		</xsd:schema>
+	
+	</wsdl:types>
+
+	<wsdl:message name="createHouseRequest">
+		<wsdl:part name="createHouseRequest" element="csq:createHouseRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="createHouseResponse">
+		<wsdl:part name="createHouseResponse" element="css:createHouseResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	
+	<wsdl:message name="readHouseRequest">
+		<wsdl:part name="readHouseRequest" element="rsq:readHouseRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="readHouseResponse">
+		<wsdl:part name="readHouseResponse" element="rss:readHouseResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="deleteHouseRequest">
+		<wsdl:part name="deleteHouseRequest" element="dsq:deleteHouseRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="deleteHouseResponse">
+		<wsdl:part name="deleteHouseResponse" element="dss:deleteHouseResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="updateHouseRequest">
+		<wsdl:part name="updateHouseRequest" element="usq:updateHouseRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="updateHouseResponse">
+		<wsdl:part name="updateHouseResponse" element="uss:updateHouseResponse">
+		</wsdl:part>
+	</wsdl:message>
+	 
+
+
+	<wsdl:portType name="ICreateHouseService">
+		<wsdl:operation name="createHouse">
+			<wsdl:input message="srv:createHouseRequest" />
+			<wsdl:output message="srv:createHouseResponse" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="updateHouse">
+			<wsdl:input message="srv:updateHouseRequest" />
+			<wsdl:output message="srv:updateHouseResponse" />
+		</wsdl:operation>
+
+		<wsdl:operation name="deleteHouse">
+			<wsdl:input message="srv:deleteHouseRequest" />
+			<wsdl:output message="srv:deleteHouseResponse" />
+		</wsdl:operation>
+
+		<wsdl:operation name="readHouse">
+			<wsdl:input message="srv:readHouseRequest" />
+			<wsdl:output message="srv:readHouseResponse" />
+		</wsdl:operation>
+		 
+		
+	</wsdl:portType>
+
+	<wsdl:binding name="HouseBinding" type="srv:ICreateHouseService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="createHouse">
+			<soap:operation soapAction="createHouse" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="updateHouse">
+			<soap:operation soapAction="updateHouse" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="readHouse">
+			<soap:operation soapAction="readHouse" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteHouse">
+			<soap:operation soapAction="deleteHouse" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		 
+	</wsdl:binding>
+
+	<wsdl:service name="HouseService">
+		<wsdl:port name="HouseServicePort" binding="srv:HouseBinding">
+			<soap:address location="http://localhost:8080/IACOne/HouseService" />
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://iac.nl.schemas/readHouseRequest"
+	targetNamespace="http://iac.nl.schemas/readHouseRequest"
+	elementFormDefault="qualified">
+
+	<element name="readHouseRequest">
+	<complexType>
+	
+	<!-- Onderstaande gegevens maken het huis uniek -->
+		<sequence>
+			<element name="straatnaam">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>	
+			<element name="huisnummer">
+			<simpleType>
+			<restriction base="integer">
+				<minInclusive value="1" />
+				<!-- IVM dubbele huisnummers, zoveel getallen -->
+				<maxInclusive value="999999" />
+			</restriction>
+			</simpleType>
+			</element>
+			<element name="huisnummertoevoeging">
+				<simpleType>
+					<restriction base="string">
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="postcode">
+				<simpleType>
+					<restriction base="string">
+						<!-- 
+						Min en max length is niet nodig, want pattern value
+					 -->
+						<pattern value="[0-9][0-9][0-9][0-9][a-zA-Z][a-zA-Z]" />
+					</restriction>
+				</simpleType>
+			</element>
+			
+			
+		</sequence>
+	</complexType>
+	</element>
+</schema>
